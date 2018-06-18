@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contextos</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="alert alert-info"><%= notice %></div>
+    <div class="alert alert-warning"><%= alert %></div>
+    <%= render 'shared/navbar' %>
+    <%= yield %>
+  </body>
+</html>
