@@ -1,4 +1,5 @@
 class ContextsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @contexts = Context.all
@@ -17,7 +18,7 @@ class ContextsController < ApplicationController
   end
 
   def create
-    @context = Context.new(context_params)
+    @context = current_user.contexts.new(context_params)
 
     if @context.save
       redirect_to @context, notice: 'Context saved!'
@@ -28,7 +29,7 @@ class ContextsController < ApplicationController
   end
 
   def update
-  @context = Context.find(params[:id])
+    @context = Context.find(params[:id])
     if @context.update(context_params)
       redirect_to @context
     else
@@ -38,9 +39,12 @@ class ContextsController < ApplicationController
 
   def destroy
     @context = Context.find(params[:id])
-    @context.destroy
-
-    redirect_to contexts_path
+    if @context.user_id == current_user.id
+      @context.destroy
+      redirect_to contexts_path, notice: 'Context deleted!'
+    else
+      redirect_to contexts_path,  alert: 'You are not authorized for this action'
+    end
   end
 
 

@@ -7,5 +7,11 @@
   <strong>Description:</strong>
   <%= @context.description %>
 </p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @context.user.email %>
+</p>
+
 <%= link_to 'Edit', edit_context_path(@context) %>
 <%= link_to 'Back', contexts_path %>
