@@ -1,0 +1,21 @@
+<h1>Listing contexts</h1>
+<%= link_to 'New context', new_context_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="3"></th>
+  </tr>
+
+  <% @contexts.each do |context| %>
+    <tr>
+      <td><%= context.title %></td>
+      <td><%= context.description %></td>
+      <td><%= link_to 'Show', context_path(context) %></td>
+      <td><%= link_to 'Edit', edit_context_path(context) %></td>
+      <td><%= link_to 'Destroy', context_path(context),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
