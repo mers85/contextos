@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_19_032603) do
+ActiveRecord::Schema.define(version: 2018_06_19_143105) do
 
   create_table "contexts", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2018_06_19_032603) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
+  end
+
+  create_table "information_posts", force: :cascade do |t|
+    t.string "title"
+    t.text "summary"
+    t.string "url"
+    t.integer "context_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["context_id"], name: "index_information_posts_on_context_id"
   end
 
   create_table "users", force: :cascade do |t|

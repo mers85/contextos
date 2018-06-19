@@ -1,3 +1,4 @@
+<h2>Context</h2>
 <p>
   <strong>Title:</strong>
   <%= @context.title %>
@@ -12,6 +13,33 @@
   <strong>Author:</strong>
   <%= @context.user.email %>
 </p>
+<% if current_user && @context.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_context_path(@context) %>
+<% end %>
 
-<%= link_to 'Edit', edit_context_path(@context) %>
-<%= link_to 'Back', contexts_path %>
+<h2>Information</h2>
+<% @context.information_posts.each do |information_post| %>
+ <p>
+   <strong>Title:</strong>
+   <%= information_post.title %>
+ </p>
+
+ <p>
+   <strong>Summary:</strong>
+   <%= information_post.summary %>
+ </p>
+
+ <p>
+   <strong>Url:</strong>
+   <%= information_post.url %>
+ </p>
+  <% if current_user && @context.user_id == current_user.id %>
+    <%= link_to 'Edit', edit_context_information_post_path(@context, information_post) %>
+    <%= link_to 'Destroy Information', context_information_post_path(@context, information_post),
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  <% end %>
+<% end %>
+
+
+  <%= link_to 'Back', contexts_path %>

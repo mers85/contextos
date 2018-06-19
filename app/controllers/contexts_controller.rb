@@ -18,9 +18,9 @@ class ContextsController < ApplicationController
   end
 
   def create
-    @context = current_user.contexts.new(context_params)
+    @context = current_user.contexts.new(context_params) rescue nil
 
-    if @context.save
+    if @context && @context.save
       redirect_to @context, notice: 'Context saved!'
     else
       flash[:alert] = 'Something went wrong'
