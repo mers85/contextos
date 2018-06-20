@@ -15,6 +15,7 @@
 </p>
 <% if current_user && @context.user_id == current_user.id %>
   <%= link_to 'Edit', edit_context_path(@context) %>
+  <td><%= link_to 'Add information', new_context_information_post_path(@context) %></td>
 <% end %>
 
 <h2>Information</h2>

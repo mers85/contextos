@@ -25,6 +25,10 @@
   </p>
 
   <p>
+    <%= form.select :category_id, options_for_select(@categories), :prompt => 'Select one category' %>
+  </p>
+
+  <p>
     <%= form.submit %>
   </p>
 

@@ -11,10 +11,12 @@ class ContextsController < ApplicationController
 
   def new
     @context = Context.new
+    @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   def edit
     @context = Context.find(params[:id])
+    @categories = Category.all.map{|c| [ c.name, c.id ] }
   end
 
   def create
@@ -23,6 +25,7 @@ class ContextsController < ApplicationController
     if @context && @context.save
       redirect_to @context, notice: 'Context saved!'
     else
+      @categories = Category.all.map{|c| [ c.name, c.id ] }
       flash[:alert] = 'Something went wrong'
       render 'new'
     end
@@ -50,6 +53,6 @@ class ContextsController < ApplicationController
 
   private
   def context_params
-    params.require(:context).permit(:title, :description)
+    params.require(:context).permit(:title, :description, :category_id)
   end
 end
