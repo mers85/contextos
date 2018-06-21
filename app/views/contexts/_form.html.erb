@@ -14,15 +14,16 @@
     </div>
   <% end %>
 
-  <p>
+<div style="margin: 33px;padding:-13px">
+  <div class="form-group" >
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
+    <%= form.text_field :title, class: "form-control rounded-0" %>
+  </div>
 
-  <p>
+  <div class="form-group shadow-textarea">
     <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+    <%= form.text_area :description, class: "form-control z-depth-1", rows: 7 %>
+  </div>
 
   <p>
     <%= form.select :category_id, options_for_select(@categories), :prompt => 'Select one category' %>
@@ -31,5 +32,5 @@
   <p>
     <%= form.submit %>
   </p>
-
+</div>
 <% end %>

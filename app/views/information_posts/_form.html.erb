@@ -14,22 +14,25 @@
       </div>
     <% end %>
 
-    <p>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-    </p>
+    <div style="margin: 33px;padding:-13px">
+      <div class="form-group" >
+        <%= form.label :title %><br>
+        <%= form.text_field :title, class: "form-control rounded-0" %>
+      </div>
 
-    <p>
-      <%= form.label :summary %><br>
-      <%= form.text_area :summary %>
-    </p>
+      <div class="form-group shadow-textarea">
+        <%= form.label :summary %><br>
+        <%= form.text_area :summary, class: "form-control z-depth-1", rows: 7 %>
+      </div>
 
-    <p>
-      <%= form.label :url %><br>
-      <%= form.text_field :url %>
-    </p>
-    <p>
-      <%= form.submit @submit %>
-    </p>
+      <div class="form-group shadow-textarea">
+        <%= form.label :url %><br>
+        <%= form.text_field :url, class: "form-control z-depth-1", rows: 7 %>
+      </div>
+
+      <p>
+        <%= form.submit @submit %>
+      </p>
+    </div>
   <% end %>
 <% end %>

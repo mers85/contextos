@@ -22,7 +22,7 @@ class ContextsController < ApplicationController
   def create
     @context = current_user.contexts.new(context_params) rescue nil
 
-    if @context && @context.save
+    if @context && @context.save!
       redirect_to @context, notice: 'Context saved!'
     else
       @categories = Category.all.map{|c| [ c.name, c.id ] }
@@ -33,7 +33,7 @@ class ContextsController < ApplicationController
 
   def update
     @context = Context.find(params[:id])
-    if @context.update(context_params)
+    if @context.update!(context_params)
       redirect_to @context
     else
       render 'edit'

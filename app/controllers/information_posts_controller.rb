@@ -1,5 +1,6 @@
 class InformationPostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :find_information_post, only: [:show, :edit, :update]
   before_action :find_context, only: [:create, :edit, :new, :update, :destroy]
 
   def index
@@ -7,7 +8,7 @@ class InformationPostsController < ApplicationController
   end
 
   def show
-    @information_post = InformationPost.find(params[:id])
+
   end
 
   def new
@@ -16,7 +17,6 @@ class InformationPostsController < ApplicationController
   end
 
   def edit
-    @information_post = InformationPost.find(params[:id])
     @submit = "EDIT info"
   end
 
@@ -27,7 +27,6 @@ class InformationPostsController < ApplicationController
   end
 
   def update
-    @information_post = InformationPost.find(params[:id])
     if @information_post.update(information_post_params)
       redirect_to @context
     else
@@ -48,6 +47,10 @@ class InformationPostsController < ApplicationController
 
   def find_context
     @context = Context.find(params[:context_id])
+  end
+
+  def find_information_post
+    @information_post = InformationPost.find(params[:id])
   end
 
 end

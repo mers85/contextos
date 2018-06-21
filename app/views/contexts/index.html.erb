@@ -1,26 +1,33 @@
-<h1>Listing contexts</h1>
-<%= link_to 'New context', new_context_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th>Category</th>
-    <th colspan="4"></th>
-  </tr>
 
+
+<div class="card-body form-row" style="margin:-33px;padding:46px">
+  <div class="col-md-4 mb-3">
+    <h1>Listing contexts</h1>
+  </div>
+  <div class="col-md-4 mb-3">
+    <p class="btn btn-outline-primary btn-lg disabled"><%= link_to 'New context', new_context_path %></p>
+  </div>
+</div>
+
+
+<div class="card-deck " style="margin:-17px;padding:46px">
   <% @contexts.each do |context| %>
-    <tr>
-      <td><%= context.title %></td>
-      <td><%= context.description %></td>
-      <td><%= link_to context.category.name, category_path(context.category_id) if context.category %></td>
-      <td><%= link_to 'Show', context_path(context) %></td>
+    <div class="card col-sm-4">
+      <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+      <div class="card-body " >
+        <h5 class="card-title"><%= context.title %></h5>
+        <p class="card-text"><%= context.description %></p>
+        <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Show', context_path(context) %></p>
         <% if current_user && context.user_id == current_user.id %>
-          <td><%= link_to 'Edit', edit_context_path(context) %></td>
-          <td><%= link_to 'Destroy', context_path(context),
-                  method: :delete,
-                  data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'Add information', new_context_information_post_path(context) %></td>
+          <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Edit', edit_context_path(context) %></p>
+          <p class="btn btn-outline-danger btn-sm disabled"><%= link_to 'Destroy', context_path(context), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+          <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Add information', new_context_information_post_path(context) %></p>
+          <p class="btn btn-outline-primary btn-sm disabled">Category:   <%= link_to context.category.name, category_path(context.category_id) if context.category %></p>
         <% end %>
-    </tr>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted"><%= context.created_at%></small>
+      </div>
+    </div>
   <% end %>
-</table>
+</div>
