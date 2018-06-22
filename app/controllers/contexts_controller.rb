@@ -12,17 +12,19 @@ class ContextsController < ApplicationController
   def new
     @context = Context.new
     @categories = Category.all.map{|c| [ c.name, c.id ] }
+    @submit = "New context"
   end
 
   def edit
     @context = Context.find(params[:id])
     @categories = Category.all.map{|c| [ c.name, c.id ] }
+    @submit = "Edit context"
   end
 
   def create
     @context = current_user.contexts.new(context_params) rescue nil
 
-    if @context && @context.save!
+    if @context && @context.save
       redirect_to @context, notice: 'Context saved!'
     else
       @categories = Category.all.map{|c| [ c.name, c.id ] }

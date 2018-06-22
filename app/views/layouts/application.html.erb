@@ -14,14 +14,13 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
+    <%= render 'shared/header' %>
     <% if notice %>
       <div class="alert alert-info"><%= notice %></div>
     <% end %>
     <% if alert %>
       <div class="alert alert-warning"><%= alert %></div>
     <% end %>
-
-    <%= render 'shared/header' %>
 
     <main role="main">
 

@@ -1,46 +1,35 @@
-<h2>Context</h2>
-<p>
-  <strong>Title:</strong>
-  <%= @context.title %>
-</p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @context.description %>
-</p>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0" style="margin:-33px;padding:46px">
+  <div class="jumbotron" >
+    <h1 class="display-4">Context</h1>
+    <p class="lead"><strong>Title:</strong> <%= @context.title %></p>
+    <hr class="my-4">
+    <p><strong>Description:</strong><%= @context.description %></p>
+    <p><strong>Author:</strong><%= @context.user.email %></p>
+    <% if current_user && @context.user_id == current_user.id %>
+      <p class="btn btn-outline-primary btn-sm" ><%= link_to 'Edit', edit_context_path(@context) %></p>
+      <p class="btn btn-outline-primary btn-sm" ><%= link_to 'Add information', new_context_information_post_path(@context) %></p>
+    <% end %>
+  </div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @context.user.email %>
-</p>
-<% if current_user && @context.user_id == current_user.id %>
-  <%= link_to 'Edit', edit_context_path(@context) %>
-  <td><%= link_to 'Add information', new_context_information_post_path(@context) %></td>
-<% end %>
-
-<h2>Information</h2>
-<% @context.information_posts.each do |information_post| %>
- <p>
-   <strong>Title:</strong>
-   <%= information_post.title %>
- </p>
-
- <p>
-   <strong>Summary:</strong>
-   <%= information_post.summary %>
- </p>
-
- <p>
-   <strong>Url:</strong>
-   <%= information_post.url %>
- </p>
-  <% if current_user && @context.user_id == current_user.id %>
-    <%= link_to 'Edit', edit_context_information_post_path(@context, information_post) %>
-    <%= link_to 'Destroy Information', context_information_post_path(@context, information_post),
-               method: :delete,
-               data: { confirm: 'Are you sure?' } %>
-  <% end %>
-<% end %>
-
+  <div class="card" style="margin:37px; padding:1px">
+    <div class="card-header">
+      <h5 class="card-title">Information</h5>
+    </div>
+      <div class="card-body">
+        <% @context.information_posts.each do |information_post| %>
+          <h5 class="card-title"><%= information_post.title %></h5>
+          <p class="card-text"><%= information_post.summary %></p>
+          <a href="<%= information_post.url %>"><%= information_post.url %></a>
+          <p class="card-text">
+            <% if current_user && @context.user_id == current_user.id %>
+              <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Edit', edit_context_information_post_path(@context, information_post) %></p>
+              <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Destroy Information', context_information_post_path(@context, information_post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+            <% end %>
+         </p>
+         <hr>
+        <% end %>
+      </div>
+  </div>
 
   <%= link_to 'Back', contexts_path %>

@@ -14,17 +14,20 @@
    </div>
   <% end %>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+  <div style="margin: 33px;padding:-13px">
+    <div class="form-group" >
+      <%= form.label :name %><br>
+      <%= form.text_field :name, class: "form-control rounded-0" %>
+    </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
+    <div class="form-group shadow-textarea">
+      <%= form.label :description %><br>
+      <%= form.text_area :description, class: "form-control z-depth-1", rows: 7 %>
+    </div>
+
+    <p>
+      <%= form.submit @submit, :class => "btn btn-outline-primary btn-sm disabled" %>
+    </p>
+  </div>
 <% end %>

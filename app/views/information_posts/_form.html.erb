@@ -30,9 +30,7 @@
         <%= form.text_field :url, class: "form-control z-depth-1", rows: 7 %>
       </div>
 
-      <p>
-        <%= form.submit @submit %>
-      </p>
+      <p><%= form.submit @submit,  class: "btn btn-outline-primary btn-sm disabled" %></p>
     </div>
   <% end %>
 <% end %>

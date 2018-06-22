@@ -11,6 +11,7 @@ class CategoriesController < ApplicationController
 
   def new
     @category = Category.new
+    @submit = 'New category'
   end
 
   def edit
@@ -36,6 +37,7 @@ class CategoriesController < ApplicationController
     else
       render 'edit'
     end
+    @submit = 'Update category'
   end
 
   def destroy

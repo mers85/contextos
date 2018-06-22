@@ -17,7 +17,7 @@ class InformationPostsController < ApplicationController
   end
 
   def edit
-    @submit = "EDIT info"
+    @submit = "Edit info"
   end
 
   def create

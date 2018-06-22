@@ -1,21 +1,29 @@
-<h1>Listing categories</h1>
-<%= link_to 'New category', new_category_path %>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th></th>
-  </tr>
 
-  <% @categories.each do |category| %>
-    <tr>
-      <td><%= category.name %></td>
-      <td><%= category.description %></td>
-      <td><%= link_to 'Show', category_path(category) %></td>
-              <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category_path(category),
-                method: :delete,
-                data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="card-body">
+  <div class='row'>
+    <div class="col">
+      <h1>Listing categories</h1>
+    </div>
+    <div class="col">
+      <p class="btn btn-outline-primary btn-lg disabled"><%= link_to 'New category', new_category_path %></p>
+    </div>
+  </div>
+</div>
+
+<div class='container'>
+  <div class="row" >
+    <div class="col-sm-6" >
+      <% @categories.each do |category| %>
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-header"><%= category.name %></h5>
+          <p class="card-text"><%= category.description %></p>
+          <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Show', category_path(category) %></p>
+          <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Edit', edit_category_path(category) %></p>
+          <p class="btn btn-outline-danger btn-sm disabled"><%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
