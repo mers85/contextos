@@ -1,35 +1,41 @@
-
- <meta name="viewport" content="width=device-width, initial-scale=1.0" style="margin:-33px;padding:46px">
-  <div class="jumbotron" >
-    <h1 class="display-4">Context</h1>
-    <p class="lead"><strong>Title:</strong> <%= @context.title %></p>
-    <hr class="my-4">
-    <p><strong>Description:</strong><%= @context.description %></p>
-    <p><strong>Author:</strong><%= @context.user.email %></p>
-    <% if current_user && @context.user_id == current_user.id %>
-      <p class="btn btn-outline-primary btn-sm" ><%= link_to 'Edit', edit_context_path(@context) %></p>
-      <p class="btn btn-outline-primary btn-sm" ><%= link_to 'Add information', new_context_information_post_path(@context) %></p>
-    <% end %>
-  </div>
-
-  <div class="card" style="margin:37px; padding:1px">
-    <div class="card-header">
-      <h5 class="card-title">Information</h5>
+<div class="container mt-4 mb-4 bg-light" >
+  <%= link_to 'Back', contexts_path %>
+  <div class="row justify-content-around">
+    <div class="col-sm-6 col-md-8">
+      <h1><%= @context.title %></h1>
+      <p><strong>Author:</strong><%= @context.user.email %></p>
+      <p><strong>Description:</strong><%= @context.description %></p>
+      <% if current_user && @context.user_id == current_user.id %>
+        <%= link_to 'Edit', edit_context_path(@context), class: "btn btn-outline-primary btn-sm mb-3" %>
+      <% end %>
     </div>
+    <div class="col-sm-6 col-md-4">
+      <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
+      <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="card-header">
+        <h3 class="card-title">Information <%= link_to 'Add information', new_context_information_post_path(@context), class: "btn btn-primary btn-sm" %></h3>
+      </div>
       <div class="card-body">
         <% @context.information_posts.each do |information_post| %>
           <h5 class="card-title"><%= information_post.title %></h5>
           <p class="card-text"><%= information_post.summary %></p>
           <a href="<%= information_post.url %>"><%= information_post.url %></a>
-          <p class="card-text">
+          <p class="mt-3">
             <% if current_user && @context.user_id == current_user.id %>
-              <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Edit', edit_context_information_post_path(@context, information_post) %></p>
-              <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Destroy Information', context_information_post_path(@context, information_post), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+              <%= link_to 'Edit', edit_context_information_post_path(@context, information_post), class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to 'Destroy Information', context_information_post_path(@context, information_post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %>
             <% end %>
          </p>
          <hr>
         <% end %>
       </div>
+    </div>
   </div>
-
-  <%= link_to 'Back', contexts_path %>
+</div>

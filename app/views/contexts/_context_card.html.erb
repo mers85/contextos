@@ -1,0 +1,17 @@
+<div class="card" style= "padding: 0px;">
+  <img class="card-img-top" src="https://www.clicktechtips.com/wp-content/uploads/2017/04/best-news-apps-for-android-users.jpg" alt="Card image">
+  <div class="card-body " >
+    <h5 class="card-title"><%= context.title %></h5>
+    <p><%= link_to context.category.name, category_path(context.category_id), class: "badge badge-info" if context.category%></p>
+    <p class="card-text"><%= context.description %></p>
+    <%= link_to 'Show', context_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
+    <% if current_user && context.user_id == current_user.id %>
+      <%= link_to 'Edit', edit_context_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
+      <%= link_to 'Destroy', context_path(context), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm mt-2" %>
+      <%= link_to 'Add information', new_context_information_post_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
+    <% end %>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted"><%= context.created_at%></small>
+  </div>
+</div>

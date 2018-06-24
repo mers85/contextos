@@ -1,7 +1,7 @@
 <header>
-  <nav class="navbar navbar-expand-md navbar-light bg-light sticky-top">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Contexto</a>
+    <a class="navbar-brand" href="/">Contexto</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -14,9 +14,11 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
           </a>
+          <% %>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Politica</a>
-            <a class="dropdown-item" href="#">Social</a>
+            <% @categories.each do |category| %>
+              <%= link_to category.name, category_path(category.id), class: "dropdown-item" %>
+            <% end %>
           </div>
         </li>
         <% if user_signed_in? %>
@@ -29,7 +31,7 @@
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
       </form>
     </div>
   </div>

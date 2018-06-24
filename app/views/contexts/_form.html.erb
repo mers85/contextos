@@ -14,7 +14,7 @@
     </div>
   <% end %>
 
-  <div style="margin: 33px;padding:-13px">
+
     <div class="form-group" >
       <%= form.label :title %><br>
       <%= form.text_field :title, class: "form-control rounded-0" %>
@@ -26,11 +26,10 @@
     </div>
 
     <p>
-      <%= form.select :category_id, options_for_select(@categories), {:prompt => 'Select one category'}, {class: "btn btn-outline-primary btn-sm disabled"}%>
+      <%= form.select :category_id, options_for_select(@categories.map{|c| [ c.name, c.id ] }), {:prompt => 'Select one category'}, {class: "btn btn-outline-primary btn-sm"}%>
     </p>
 
     <p>
-      <%= form.submit @submit, :class => "btn btn-outline-primary btn-sm disabled" %>
+      <%= form.submit @submit, :class => "btn btn-outline-primary btn-sm" %>
     </p>
-  </div>
 <% end %>

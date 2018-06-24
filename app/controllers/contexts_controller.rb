@@ -1,6 +1,5 @@
 class ContextsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-
   def index
     @contexts = Context.all
   end
@@ -11,13 +10,11 @@ class ContextsController < ApplicationController
 
   def new
     @context = Context.new
-    @categories = Category.all.map{|c| [ c.name, c.id ] }
     @submit = "New context"
   end
 
   def edit
     @context = Context.find(params[:id])
-    @categories = Category.all.map{|c| [ c.name, c.id ] }
     @submit = "Edit context"
   end
 
@@ -27,7 +24,6 @@ class ContextsController < ApplicationController
     if @context && @context.save
       redirect_to @context, notice: 'Context saved!'
     else
-      @categories = Category.all.map{|c| [ c.name, c.id ] }
       flash[:alert] = 'Something went wrong'
       render 'new'
     end

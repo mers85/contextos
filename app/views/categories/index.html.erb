@@ -1,29 +1,29 @@
-
-<div class="card-body">
+<div class="container">
   <div class='row'>
-    <div class="col">
-      <h1>Listing categories</h1>
-    </div>
-    <div class="col">
-      <p class="btn btn-outline-primary btn-lg disabled"><%= link_to 'New category', new_category_path %></p>
+    <div class="col-sm-12">
+      <div class="mt-4 mb-4">
+        <h1>Listing categories <%= link_to 'New category', new_category_path, class: "btn btn-outline-primary btn-sm" %></h1>
+      </div>
     </div>
   </div>
-</div>
 
-<div class='container'>
+
   <div class="row" >
-    <div class="col-sm-6" >
+    <div class="col-sm-12">
       <% @categories.each do |category| %>
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-header"><%= category.name %></h5>
-          <p class="card-text"><%= category.description %></p>
-          <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Show', category_path(category) %></p>
-          <p class="btn btn-outline-primary btn-sm disabled"><%= link_to 'Edit', edit_category_path(category) %></p>
-          <p class="btn btn-outline-danger btn-sm disabled"><%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+        <div class="card mb-4">
+        <h5 class="card-header"><%= category.name %></h5>
+          <div class="card-body">
+            <p class="card-text"><%= category.description %></p>
+            <%= link_to 'Show', category_path(category),class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Edit', edit_category_path(category), class: "btn btn-outline-primary btn-sm" %>
+            <%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
   </div>
+
+
+
 </div>
