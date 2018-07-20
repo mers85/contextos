@@ -89,6 +89,8 @@ GEM
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25)
+    font-awesome-rails (4.7.0.4)
+      railties (>= 3.2, < 6.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     holder_rails (2.9.3)
@@ -231,6 +233,7 @@ DEPENDENCIES
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  font-awesome-rails
   holder_rails
   jbuilder (~> 2.5)
   jquery-rails
