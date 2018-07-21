@@ -11,7 +11,7 @@
           <a class="nav-link" href="/contexts"> Contextos</a>
         </li>
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
           </a>
           <% %>
@@ -21,13 +21,20 @@
             <% end %>
           </div>
         </li>
-        <% if user_signed_in? %>
-          <li class="nav-item"><%= link_to current_user.email, edit_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Logout", destroy_user_session_path, method: :delete, class: "nav-link" %></li>
-        <% else %>
-          <li class="nav-item"><%= link_to "Sign Up", new_user_registration_path, class: "nav-link" %></li>
-          <li class="nav-item"><%= link_to "Login", new_user_session_path, class: "nav-link" %></li>
-        <% end %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <% if user_signed_in? %>
+              <%= link_to "Logged as: " + current_user.email, edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <% else %>
+              <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "Login", new_user_session_path, class: "dropdown-item" %></a>
+            <% end %>
+          </div>
+        </li>
       </ul>
       <form class="form-inline mt-2 mt-md-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
