@@ -3,7 +3,7 @@
   <div class="card-body " >
     <h5 class="card-title"><%= context.title %></h5>
     <p><%= link_to context.category.name, category_path(context.category_id), class: "badge badge-info" if context.category%></p>
-    <p class="card-text"><%= context.description %></p>
+    <p class="card-text"><%= truncate(context.description,length: 50, separator: ' ') %></p>
     <%= link_to 'Show', context_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
     <% if current_user && context.user_id == current_user.id %>
       <%= link_to 'Edit', edit_context_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
