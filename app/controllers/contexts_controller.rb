@@ -48,6 +48,13 @@ class ContextsController < ApplicationController
     end
   end
 
+  def add_to_favourites
+    @favourites = current_user.favourites.new(context_id: params[:id])
+    if @favourites.save == true
+      redirect_to context_path(params[:id]), notice: 'Added to favourites'
+    end
+  end
+
 
   private
   def context_params
