@@ -6,4 +6,10 @@ class User < ApplicationRecord
   has_many :favourite_contexts, through: :favourites,  source: :context
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+
+  def favourite_for(context)
+    favourites.where(context_id: context.id).first
+  end
+
 end
