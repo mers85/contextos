@@ -8,8 +8,14 @@
       <% if current_user && @context.user_id == current_user.id %>
         <%= link_to 'Edit', edit_context_path(@context), class: "btn btn-outline-primary btn-sm mb-3" %>
       <% end %>
+      <% if favourite = current_user.favourite_for(@context) %>
+        <%= link_to "<i class='fa fa-heart favourite_heart'></i>".html_safe, favourite_path(favourite, context_id: @context.id), method: :delete%>
+      <%else%>
+        <%= link_to "<i class='fa fa-heart-o unfavourite_heart'></i>".html_safe, favourites_path(context_id: @context.id), method: :post%>
+      <% end %>
+
     </div>
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-4"
       <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
       <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
     </div>
