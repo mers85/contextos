@@ -1,5 +1,6 @@
 class ContextsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  
   def index
     @contexts = Context.all
   end

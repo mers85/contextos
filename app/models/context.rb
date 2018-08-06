@@ -7,4 +7,21 @@ class Context < ApplicationRecord
   validates :category_id,  presence: true
   validates :title,  presence: true,
                      length: { minimum: 5 }
+
+
+  def favourited?(user)
+    user.favourite_for self
+  end
+
+  def favourite!(user)
+    favourite = user.favourites.build(context_id: self.id)
+    favourite.save!
+  end
+
+  def unfavourite!(user)
+    unfavourite = user.favourite_for(self)
+    unfavourite.destroy!
+  end
+
+
 end

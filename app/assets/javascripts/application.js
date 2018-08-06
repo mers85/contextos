@@ -10,6 +10,10 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// jquery_ujs allows us to use 'data-remote',
+// 'data-type', and 'data-method' attributes
+//
+//= require jquery_ujs
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
