@@ -74,3 +74,4 @@ gem 'bootstrap', '~> 4.1.1'
 gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'holder_rails'
+gem 'mechanize', '~> 2.7', '>= 2.7.5'
