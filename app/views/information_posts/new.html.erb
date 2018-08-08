@@ -19,11 +19,13 @@
 <script>
 function takeTitle() {
   var input = document.getElementById("information_post_url");
-  var url = input.value;
-  $.ajax({
-    method: "GET",
-    url: "/webscraping",
-    data: { url: url}
-  });
+  var url = input.value ;
+  if !(url == ''){
+    $.ajax({
+      method: "GET",
+      url: "/webscraping",
+      data: { url: url}
+    });
+  };
 }
 </script>

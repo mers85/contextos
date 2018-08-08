@@ -10,13 +10,26 @@ class Contexts::WebscrapingController < ApplicationController
     end
     @title = title
 
-    summary = page.at('meta[name="twitter:description"]')
-    unless summary
-      summary = page.at('meta[property="twitter:description"]')
-    end
-    summary = summary.nil? ? 'Unknow' : summary[:content]
-    @summary = summary
+    summary = get_from_twitter_tags(page)
+    summary = get_from_property_twitter_tags(page) if summary.nil?
+    summary = get_from_property_facebook_tags(page) if summary.nil?
 
+    @summary = summary.nil? ? 'unknown': summary[:content]
 
   end
+
+  private
+
+  def get_from_twitter_tags(page)
+    page.at('meta[name="twitter:description"]')
+  end
+
+  def get_from_property_twitter_tags(page)
+    page.at('meta[property="twitter:description"]')
+  end
+
+  def get_from_property_facebook_tags(page)
+    page.at('meta[property="og:description"]')
+  end
+
 end
