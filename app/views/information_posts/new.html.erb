@@ -20,7 +20,7 @@
 function takeTitle() {
   var input = document.getElementById("information_post_url");
   var url = input.value ;
-  if !(url == ''){
+  if ( !(url == '')){
     $.ajax({
       method: "GET",
       url: "/webscraping",
