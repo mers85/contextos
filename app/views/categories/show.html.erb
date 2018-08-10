@@ -14,9 +14,13 @@
     <div class="col-md-12">
       <h3> Contexts under this category </h3>
         <div class="card-deck">
-        <% @category.contexts.published.each do |context| %>
-         <%= render 'contexts/context_card', context: context  %>
-        <% end %>
+          <% if @category.contexts.published.empty? %>
+            <p> There are no contexts under this category</p>
+          <% else %>
+            <% @category.contexts.published.each do |context| %>
+              <%= render 'contexts/context_card', context: context  %>
+            <%end%>
+          <% end %>
       </div>
     </div>
   </div>
