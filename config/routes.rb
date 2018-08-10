@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :categories
   resources :contexts do
     resources :information_posts
+    resources :pictures
     resource :favourite, only: %w(update destroy), module: 'contexts'
   end
   resources :webscraping, only: %w(index), module: 'contexts'

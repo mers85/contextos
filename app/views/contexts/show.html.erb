@@ -15,9 +15,19 @@
       <% end %>
 
     </div>
-    <div class="col-sm-6 col-md-4"
-      <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
-      <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
+    <div class="col-sm-6 col-md-4">
+      <div class="row justify-content-center mb-2">
+        <%= link_to 'Add Image', new_context_picture_path(@context), class: "btn  btn-outline-primary btn-sm " %>
+      </div>
+      <div class="row justify-content-center mb-1">
+        <%if @context.pictures.empty?%>
+          <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
+        <%else%>
+          <% @context.pictures.each do |picture| %>
+            <%= image_tag(picture.image, class: "img-fluid mx-auto image-context") %>
+          <%end%>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>

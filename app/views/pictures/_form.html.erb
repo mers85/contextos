@@ -1,0 +1,34 @@
+<% if current_user && @context.user_id == current_user.id %>
+  <%= form_with(model: [ @context, @picture.id ? @picture : @context.pictures.build ], local: true) do |form| %>
+    <% if @picture.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@picture.errors.count, "error") %> prohibited
+          this image from being saved:
+        </h2>
+        <ul>
+          <% @picture.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+      <div class="form-group" >
+          <%= form.label :title %><br>
+          <%= form.text_field :title, class: "form-control rounded-0" %>
+      </div>
+
+      <div class="form-group shadow-textarea">
+          <%= form.label :description %><br>
+          <%= form.text_field :description, class: "form-control z-depth-1", rows: 7 %>
+      </div>
+
+      <div class="form-group shadow-textarea">
+          <%= form.label :image %><br>
+          <%= form.file_field :image, class: "form-control z-depth-1" %>
+      </div>
+
+      <p><%= form.submit @submit,  class: "btn btn-outline-primary btn-sm" %></p>
+  <% end %>
+<% end %>

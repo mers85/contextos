@@ -12,7 +12,7 @@ amazon:
   secret_access_key: IC1ibQ6dH/tX9fm7jsKcz/7YpZky3w+0CrQi6bnLvCg
   region: nyc3
   bucket: image-contexts-space
-  endpoint: 'nyc3.digitaloceanspaces.com'
+  endpoint: 'https://nyc3.digitaloceanspaces.com'
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:

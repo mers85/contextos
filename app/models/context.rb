@@ -7,7 +7,7 @@ class Context < ApplicationRecord
   validates :category_id,  presence: true
   validates :title,  presence: true,
                      length: { minimum: 5 }
-  has_many :context_images
+  has_many :pictures, dependent: :destroy
 
   def favourited?(user)
     user.favourite_for self

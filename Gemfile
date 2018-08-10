@@ -75,3 +75,4 @@ gem "font-awesome-rails"
 gem 'jquery-rails'
 gem 'holder_rails'
 gem 'mechanize', '~> 2.7', '>= 2.7.5'
+gem 'aws-sdk-s3', '~>1', require: false
