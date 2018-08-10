@@ -9,8 +9,8 @@ class ContextsController < ApplicationController
     @context = Context.find(params[:id])
     if @context.draft? && (@context.user_id == current_user.id)
       redirect_to edit_context_redaction_path(@context)
-    else
-      redirect_to context_path(@context)
+    elsif @context.draft? && (@context.user_id != current_user.id)
+      redirect_to contexts_path, alert: 'You are not authorized for this action'
     end
   end
 
@@ -57,6 +57,6 @@ class ContextsController < ApplicationController
 
   private
   def context_params
-    params.require(:context).permit(:title, :description, :category_id)
+    params.require(:context).permit(:title, :description, :category_id, :status)
   end
 end

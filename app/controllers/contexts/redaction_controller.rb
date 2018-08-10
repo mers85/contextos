@@ -1,4 +1,5 @@
-class RedactionController < ApplicationController
+class Contexts::RedactionController < ApplicationController
+  before_action :set_context
   before_action :authenticate_context_owner!
 
   def edit
@@ -8,8 +9,10 @@ class RedactionController < ApplicationController
   end
 
   private
+  def set_context
+    @context = Context.find(params[:context_id])
+  end
   def authenticate_context_owner!
-    @context = Context.find(params[:id])
     if @context.user_id != current_user.id
       redirect_to "/", notice: 'You are not authorized to do this action'
     end
