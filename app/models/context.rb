@@ -8,6 +8,7 @@ class Context < ApplicationRecord
   validates :title,  presence: true,
                      length: { minimum: 5 }
   has_many :pictures, dependent: :destroy
+  enum status: { draft: 0, published: 1 }
 
   def favourited?(user)
     user.favourite_for self

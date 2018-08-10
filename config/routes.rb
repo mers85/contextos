@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     resources :information_posts
     resources :pictures
     resource :favourite, only: %w(update destroy), module: 'contexts'
+    resource :redaction, only: %w(edit update), module: 'contexts'
   end
   resources :webscraping, only: %w(index), module: 'contexts'
   root 'welcome#index'

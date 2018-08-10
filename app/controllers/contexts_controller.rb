@@ -1,12 +1,17 @@
 class ContextsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  
+
   def index
-    @contexts = Context.all
+    @contexts = Context.published
   end
 
   def show
     @context = Context.find(params[:id])
+    if @context.draft? && (@context.user_id == current_user.id)
+      redirect_to edit_context_redaction_path(@context)
+    else
+      redirect_to context_path(@context)
+    end
   end
 
   def new
