@@ -28,6 +28,7 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <% if user_signed_in? %>
               <%= link_to "Logged as: " + current_user.email, edit_user_registration_path, class: "dropdown-item" %>
+              <%= link_to "My Contexts", redaction_contexts_path(@context), class: "dropdown-item" %>
               <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             <% else %>
               <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>

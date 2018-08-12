@@ -1,11 +1,12 @@
 class Contexts::RedactionController < ApplicationController
-  before_action :set_context
-  before_action :authenticate_context_owner!
+  before_action :set_context, only: [:edit]
+  before_action :authenticate_context_owner!, only: [:edit]
 
-  def edit
+  def index
+    @contexts = current_user.contexts
   end
 
-  def update
+  def edit
   end
 
   private
