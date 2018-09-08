@@ -1,97 +1,56 @@
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="first-slide" src="https://eoimages.gsfc.nasa.gov/images/imagerecords/79000/79765/dnb_land_ocean_ice.2012.3600x1800.jpg" alt="First slide">
-      <div class="container">
-        <div class="carousel-caption text-left">
-          <h1>Contexto</h1>
-          <p>Es un agregador de datos para facilitar el análisis, actualmente en construcción..</p>
-          <p><a class="btn btn-lg btn-primary" href="/contexts" role="button">Sign up today</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="second-slide" src="https://images.teletica.com//Files/Sizes/2018/6/15/1637558842_1140x520.jpg" alt="Second slide">
-      <div class="container">
-        <div class="carousel-caption">
-          <h1>Elecciones en colombia</h1>
-          <p></p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="carousel-item">
-      <img class="third-slide" src="http://www.eluniversal.com.co/sites/default/files/201806/hidroituango_2_1.jpg" alt="Third slide">
-      <div class="container">
-        <div class="carousel-caption text-right">
-          <h1>¿Qué pasa con hidroituango?</h1>
-          <p>Noticias relevantes para entender las elecciones presidenciales de 2018 en Colombia</p>
-          <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+<div class="jumbotron">
+  <div class="container mt-3 pt-3">
+    <h1 class="display-4 text-muted">Contextos</h1>
+    <p class="lead text-muted">
+      Platform saves data input and shows information as a card on the page.
+    </p>
+    <p class="lead text-muted">
+      The goal of this platform is to incorporate all the data and analyze the information.
+    </p>
+  </div>
+</div>
+
+<!-- Start from blog -->
+<section id="mu-from-blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mu-from-blog-area">
+          <!-- Title -->
+          <div class="row">
+            <div class="col-md-12 text-center">
+              <div class="mu-title">
+                <h2>From Our Blog</h2>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa cum sociis.</p>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="mu-from-blog-content">
+                <div class="row">
+                  <% @contexts.each do |context|%>
+                  <div class="col-md-4 mt-3">
+                    <article class="mu-blog-item">
+                      <a href="<%=context_path(context)%>"><%= image_tag "img-news.jpg"%></a>
+                      <div class="mu-blog-item-content">
+                        <ul class="mu-blog-meta">
+                          <li>by: <%= context.user.email %> </li>
+                          <li><%= link_to context.category.name, category_path(context.category_id) if context.category%></li>
+                          <li><i class="fa fa-heart-o"></i><%= context.favourites.count %></li>
+                        </ul>
+                        <h2 class="mu-blog-item-title"><a href="<%=context_path(context)%>"><%= context.title %></a></h2>
+                        <p><%= truncate(context.description,length: 50, separator: ' ') %></p>
+                        <a class="mu-blg-readmore-btn" href="<%=context_path(context)%>">Read more <i class="fa fa-long-arrow-right"></i></a>
+                      </div>
+                    </article>
+                  </div>
+                  <%end%>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="sr-only">Next</span>
-  </a>
-</div>
-
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
-
-      <div class="container marketing">
-        <!-- START THE FEATURETTES -->
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading"><a href="#">Elecciones en colombia</a><span class="text-muted">Noticias relevantes para entender las elecciones presidenciales de 2018 en Colombia </span></h2>
-            <p class="lead">Colombia venció a la maquinaria?</p>
-            <p class="lead">Juan Manuel Santos sobre las elecciones: Iván Duque y el uribismo son la misma cosa </p>
-            <p class="lead">Ni la maquinaria le sirvió a Vargas Lleras para salvarse de esa «votación tan chimba» </p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto  align-left medium" data-src="holder.js/500x500/auto" src="https://pbs.twimg.com/media/DdrZs68VQAAIUFy.jpg" alt="1era destacada">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7 order-md-2">
-            <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5 order-md-1">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-          <div class="col-md-7">
-            <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-            <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-          </div>
-          <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-          </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- /END THE FEATURETTES -->
-
-      </div><!-- /.container -->
+</section>
+<!-- End from blog -->
