@@ -1,0 +1,54 @@
+/*--------------------*/
+/* HEADER */
+/*--------------------*/
+
+#mu-hero {
+	background-color: rgba(4,4,4,0.55);
+	display: inline;
+	float: left;
+	width: 100%;
+}
+
+.mu-logo-area {
+	display: inline;
+	float: left;
+	width: 50%;
+}
+
+.mu-navbar .mu-logo {
+	color: #A4A4A4;
+	font-weight: 600;
+	font-size: 36px;
+}
+
+.mu-logo span{
+	display: inline-block;
+}
+
+.mu-logo img {
+	margin-top: -5px;
+}
+
+.mu-navbar .mu-logo:hover,
+.mu-navbar .mu-logo:focus {
+	color: #fff;
+}
+
+.mu-scrolldown-area {
+	display: inline;
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+
+.mu-scrolldown {
+	font-size: 40px;
+	color: #fff;
+	display: inline-block;
+	margin-top: 50px;
+}
+
+.mu-scrolldown:hover,
+.mu-scrolldown:focus {
+	color: #fff;
+}

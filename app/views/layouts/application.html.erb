@@ -22,12 +22,11 @@
       <div class="alert alert-warning"><%= alert %></div>
     <% end %>
 
-    <main role="main">
-
+    <main>
       <%= yield %>
+    </main>
+    <!-- FOOTER -->
+    <%= render 'shared/footer' %>
 
-      <!-- FOOTER -->
-      <%= render 'shared/footer' %>
-    
   </body>
 </html>

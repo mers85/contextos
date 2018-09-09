@@ -28,21 +28,7 @@
               <div class="mu-from-blog-content">
                 <div class="row">
                   <% @contexts.each do |context|%>
-                  <div class="col-md-4 mt-3">
-                    <article class="mu-blog-item">
-                      <a href="<%=context_path(context)%>"><%= image_tag "img-news.jpg"%></a>
-                      <div class="mu-blog-item-content">
-                        <ul class="mu-blog-meta">
-                          <li>by: <%= context.user.email %> </li>
-                          <li><%= link_to context.category.name, category_path(context.category_id) if context.category%></li>
-                          <li><i class="fa fa-heart-o"></i><%= context.favourites.count %></li>
-                        </ul>
-                        <h2 class="mu-blog-item-title"><a href="<%=context_path(context)%>"><%= context.title %></a></h2>
-                        <p><%= truncate(context.description,length: 50, separator: ' ') %></p>
-                        <a class="mu-blg-readmore-btn" href="<%=context_path(context)%>">Read more <i class="fa fa-long-arrow-right"></i></a>
-                      </div>
-                    </article>
-                  </div>
+                  <%= render 'contexts/context_card', context: context  %>
                   <%end%>
                 </div>
               </div>

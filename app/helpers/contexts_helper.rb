@@ -23,4 +23,11 @@ module ContextsHelper
     link_to(icon.html_safe, url, options)
   end
 
+  def load_image_for(context)
+    if context.pictures.any?
+      image_tag context.pictures.sample.image, class: "img-fluid"
+    else
+      image_tag "img-news.jpg", class: "img-fluid"
+    end
+  end
 end
