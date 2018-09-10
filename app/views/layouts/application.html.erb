@@ -21,9 +21,10 @@
     <% if alert %>
       <div class="alert alert-warning"><%= alert %></div>
     <% end %>
-
     <main>
+    <div class="py-5 mt-5">
       <%= yield %>
+    </div>
     </main>
     <!-- FOOTER -->
     <%= render 'shared/footer' %>
