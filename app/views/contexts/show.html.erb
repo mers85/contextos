@@ -1,24 +1,7 @@
-<div class="container bg-light" >
-  <%= link_to 'Back', contexts_path %>
+<div class="container py-3">
   <div class="row justify-content-around">
-    <div class="col-sm-6 col-md-8">
-      <h1><%= @context.title %></h1>
-      <p><strong>Author:</strong><%= @context.user.email %></p>
-      <p><strong>Description:</strong><%= @context.description %></p>
-      <% if current_user && @context.user_id == current_user.id %>
-        <%= link_to 'Edit', edit_context_path(@context), class: "btn btn-outline-primary btn-sm mb-3" %>
-      <% end %>
-      <% if current_user%>
-      <span id="context-<%= @context.id %>">
-        <%= link_to_toggle_context_favourite @context, current_user %>
-      </span>
-      <% end %>
 
-    </div>
     <div class="col-sm-6 col-md-4">
-      <div class="row justify-content-center mb-2">
-        <%= link_to 'Add Image', new_context_picture_path(@context), class: "btn  btn-outline-primary btn-sm " %>
-      </div>
       <div class="row justify-content-center mb-1">
         <%if @context.pictures.empty?%>
           <img class="img-fluid mx-auto" data-src="holder.js/150x150/auto" alt="Generic placeholder image">
@@ -27,6 +10,47 @@
             <%= image_tag(picture.image, class: "img-fluid mx-auto image-context") %>
           <%end%>
         <%end%>
+      </div>
+    </div>
+
+    <div class="col-sm-6 col-md-8">
+      <div class="row text-left">
+        <div class="col-12">
+          <h2><%= @context.title %></h2>
+          <p>by: <%= @context.user.email %></p>
+        </div>
+        <div class="col-12">
+          <%= @context.description %>
+        </div>
+      </div>
+      <div class="row text-left">
+        <div class="col-12">
+          <% if current_user && @context.user_id == current_user.id %>
+            <%= link_to 'Edit', edit_context_path(@context), class: "btn btn-outline-primary btn-sm mb-3" %>
+          <% end %>
+          <% if current_user%>
+          <span id="context-<%= @context.id %>">
+            <%= link_to_toggle_context_favourite @context, current_user %>
+          </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Start related post -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="mu-related-post">
+        <h2 class="mu-related-post-title ">You must read</h2>
+        <div class="row">
+          <div class="col">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
