@@ -12,7 +12,9 @@
     <div id="collapseOne-<%= information_post.id %>" class="collapse <%= index.zero? ? 'show' : '' %>" aria-labelledby="headingOne" data-parent="#accordianExample">
       <div class="card-body">
         <%= information_post.summary %>
+        <p class="mt-3">
         <a href="<%= information_post.url %>"><%= information_post.url %></a>
+      </p>
         <p class="mt-3">
           <% if current_user && @context.user_id == current_user.id %>
             <%= link_to 'Edit', edit_context_information_post_path(@context, information_post), class: "btn btn-outline-primary btn-sm" %>

@@ -19,12 +19,12 @@
           <h2><%= @context.title %></h2>
           <p>by: <%= @context.user.email %></p>
         </div>
-        <div class="col-12">
+        <div class="col-12 mb-3">
           <%= @context.description %>
         </div>
       </div>
       <div class="row text-left">
-        <div class="col-12">
+        <div class="col-12 py-3 mt-3">
           <% if current_user && @context.user_id == current_user.id %>
             <%= link_to 'Edit', edit_context_path(@context), class: "btn btn-outline-primary btn-sm mb-3" %>
           <% end %>
