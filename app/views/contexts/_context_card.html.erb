@@ -1,17 +1,18 @@
-<div class="card" style= "padding: 0px;">
-  <img class="card-img-top" src="https://www.clicktechtips.com/wp-content/uploads/2017/04/best-news-apps-for-android-users.jpg" alt="Card image">
-  <div class="card-body " >
-    <h5 class="card-title"><%= context.title %></h5>
-    <p><%= link_to context.category.name, category_path(context.category_id), class: "badge badge-info" if context.category%></p>
-    <p class="card-text"><%= truncate(context.description,length: 50, separator: ' ') %></p>
-    <%= link_to 'Show', context_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
-    <% if current_user && context.user_id == current_user.id %>
-      <%= link_to 'Edit', edit_context_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
-      <%= link_to 'Destroy', context_path(context), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm mt-2" %>
-      <%= link_to 'Add information', new_context_information_post_path(context), class: "btn btn-outline-primary btn-sm mt-2" %>
-    <% end %>
-  </div>
-  <div class="card-footer">
-    <small class="text-muted"><%= context.created_at%></small>
-  </div>
+<div class="col-md-4 mt-3">
+  <article class="mu-blog-item">
+    <div class="context-img">
+      <a href="<%=context_path(context)%>"><%= load_image_for(context) %></a>
+    </div>
+    <div class="mu-blog-item-content">
+      <ul class="mu-blog-meta">
+        <li>by: <%= context.user.email %> </li>
+        <li><%= link_to context.category.name, category_path(context.category_id) if context.category%></li>
+        <li><i class="fa fa-heart-o"></i><%= context.favourites.count %></li>
+      </ul>
+      <ul><small class="text-muted"><%= context.created_at%></small></ul>
+      <h2 class="mu-blog-item-title"><a href="<%=context_path(context)%>"><%= context.title %></a></h2>
+      <p><%= truncate(context.description,length: 50, separator: ' ') %></p>
+      <a class="mu-blg-readmore-btn" href="<%=context_path(context)%>">Read more <i class="fa fa-long-arrow-right"></i></a>
+    </div>
+  </article>
 </div>

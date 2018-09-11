@@ -1,47 +1,48 @@
-<header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">Contexto</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="/contexts"> Contextos</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categories
-          </a>
-          <% %>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% @categories.each do |category| %>
-              <%= link_to category.name, category_path(category.id), class: "dropdown-item" %>
-            <% end %>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <% if user_signed_in? %>
-              <%= link_to "Logged as: " + current_user.email, edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "My Contexts", redaction_contexts_path(@context), class: "dropdown-item" %>
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-            <% else %>
-              <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Login", new_user_session_path, class: "dropdown-item" %></a>
-            <% end %>
-          </div>
-        </li>
-      </ul>
-      <form class="form-inline mt-2 mt-md-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-  </nav>
-</header>
+<!--START SCROLL TOP BUTTON -->
+ <a class="scrollToTop" href="#">
+	 <i class="fa fa-angle-up"></i>
+ </a>
+<!-- END SCROLL TOP BUTTON -->
+	<header id="mu-hero">
+		<div class="container">
+			<nav class="navbar navbar-expand-lg navbar-light mu-navbar">
+				<!-- Text based logo -->
+				<a class="navbar-brand mu-logo" href="/"><span>contexto</span></a>
+				<!-- image based logo -->
+			   	<!-- <a class="navbar-brand mu-logo" href="index.html"><img src="assets/images/logo.png" alt="logo"></a> -->
+			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			    <span class="fa fa-bars"></span>
+			  </button>
+
+			  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+			    <ul class="navbar-nav mr-auto mu-navbar-nav">
+			      <li class="nav-item ">
+			        <a href="/contexts">Contextos</a>
+			      </li>
+			       <li class="nav-item dropdown">
+				        <a class="dropdown-toggle" href="blog.html" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+				       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <% @categories.each do |category| %>
+                   <%= link_to category.name, category_path(category.id), class: "dropdown-item" %>
+                 <% end %>
+				        </div>
+				      </li>
+              <li class="nav-item dropdown">
+ 				        <a class="dropdown-toggle" href="blog.html" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+ 				       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <% if user_signed_in? %>
+                   <%= link_to "Logged as: " + current_user.email, edit_user_registration_path, class: "dropdown-item" %>
+                   <%= link_to "My Contexts", redaction_contexts_path(@context), class: "dropdown-item" %>
+                   <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                 <% else %>
+                   <%= link_to "Sign Up", new_user_registration_path, class: "dropdown-item" %>
+                   <%= link_to "Login", new_user_session_path, class: "dropdown-item" %></a>
+                 <% end %>
+ 				       </div>
+ 				      </li>
+			    </ul>
+			  </div>
+			</nav>
+		</div>
+	</header>
+	<!-- End Header -->

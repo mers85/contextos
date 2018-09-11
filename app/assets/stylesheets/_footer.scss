@@ -1,0 +1,156 @@
+
+/*--------------------*/
+/* FOOTER */
+/*--------------------*/
+
+
+#mu-footer {
+	background-color: #fff;
+	display: inline;
+	float: left;
+	width: 100%;
+}
+
+.mu-footer-top {
+	background-color: #0A0A2A;
+	display: inline;
+	float: left;
+	padding: 100px 0px;
+	width: 100%;
+}
+
+.mu-single-footer {
+	display: inline;
+	float: left;
+	color: #fff;
+	font-size: 14px;
+	width: 100%;
+}
+
+.mu-footer-logo {
+	margin-bottom: 25px;
+}
+
+.mu-single-footer h3 {
+	color: #fff;
+	font-size: 18px;
+	text-transform: uppercase;
+	margin-bottom: 35px;
+}
+
+.mu-single-footer ul li {
+	border-bottom: 1px solid #1c85c4;
+	list-style: none;
+	margin-bottom: 10px;
+	padding-bottom: 12px;
+	font-size: 14px;
+}
+
+.mu-single-footer ul li:last-child {
+	border-bottom: none;
+}
+
+.mu-single-footer ul li a {
+	color: #fff;
+}
+
+.mu-single-footer .mu-useful-links li {
+	line-height: 1;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+.mu-single-footer .list-unstyled li {
+	margin-bottom: 20px;
+	padding-bottom: 10px;
+}
+
+.mu-single-footer .list-unstyled li.media span {
+	margin-right: 10px;
+}
+
+.mu-single-footer .list-unstyled li.media p {
+	line-height: 1.5;
+	margin-top: -5px;
+	margin-bottom: 4px;
+	font-size: 14px;
+}
+
+.mu-single-footer .list-unstyled li.media a {
+	font-size: 12px;
+}
+
+.mu-footer-bottom {
+	background-color: rgba(4,4,4,0.55);
+	display: inline;
+	padding: 20px 0;
+	float: left;
+	width: 100%;
+  position: absolute;
+}
+
+.mu-footer-bottom-area {
+	display: inline;
+	float: left;
+	text-align: center;
+	width: 100%;
+}
+
+.mu-social-media {
+	display: inline;
+	float: left;
+	width: 100%;
+	border-top: 1px solid #1c85c4;
+	padding-top: 12px;
+}
+
+.mu-social-media a {
+	background-color: #3b5998;
+
+	border-radius: 50%;
+	color: #fff;
+	display: inline-block;
+	margin-right: 6px;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.2s ease-in-out 0s;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	font-size: 16px;
+}
+
+.mu-social-media a.mu-twitter {
+	background-color: #1da1f2;
+}
+
+.mu-social-media a.mu-google-plus {
+	background-color: #dd4b39;
+}
+
+.mu-social-media a.mu-pinterest {
+	background-color: #bd081c;
+}
+
+.mu-social-media a.mu-youtube {
+	background-color: #cd201f;
+}
+
+.mu-social-media a:hover,
+.mu-social-media a:focus {
+	border-color: #babcbe;
+	color: #fff;
+}
+
+.mu-copy-right {
+	color: #fff;
+	margin-bottom: 0;
+	font-size: 14px;
+}
+
+.mu-copy-right a {
+	color: #fff;
+	font-weight: 600;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+}

@@ -14,7 +14,6 @@
         <div class="card mb-4">
         <h5 class="card-header"><%= category.name %></h5>
           <div class="card-body">
-            <p class="card-text"><%= category.description %></p>
             <%= link_to 'Show', category_path(category),class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Edit', edit_category_path(category), class: "btn btn-outline-primary btn-sm" %>
             <%= link_to 'Destroy', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm" %>

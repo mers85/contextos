@@ -1,14 +1,39 @@
-<div class='container'>
-  <div class='row'>
-    <div class="col-sm-12">
-      <div class="mt-4 mb-4">
-        <h1>Listing contexts <%= link_to 'New context', new_context_path, class:"btn btn-outline-primary btn-sm" %></h1>
-      </div>
-      <div class="card-deck">
-        <% @contexts.each do |context| %>
-          <%= render 'context_card', context: context  %>
-        <% end %>
+<!-- Start Portfolio -->
+<section id="mu-portfolio">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="mu-portfolio-area">
+          <!-- Title -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="mu-title">
+                <h2>Contexts</h2>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+              <!-- Start Portfolio Filter -->
+              <div class="mu-portfolio-filter-area">
+                <ul class="mu-simplefilter">
+                  <li class="active" data-filter="all" href="/contexts">All</li>
+                  <% @categories.each do |category|%>
+                  <li data-filter="1"><span>/</span><%= link_to category.name, category_path(category) %></li>
+                  <%end%>
+                </ul>
+              </div>
+
+              <!-- Start Portfolio Content -->
+              <div class="mu-portfolio-content">
+                <div class="row">
+                  <% @contexts.each do |context| %>
+                    <%= render 'context_card', context: context  %>
+                  <% end %>
+                </div>
+              </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+</section>

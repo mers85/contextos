@@ -1,0 +1,275 @@
+/*--------------------*/
+/* BASIC TYPOGRAPHY */
+/*--------------------*/
+
+body,
+html {
+	overflow-x:hidden;
+}
+
+body {
+	font-family: 'Raleway', sans-serif;
+	color: #666666;
+	font-size: 16px;
+	font-weight: 400;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+}
+
+ul li {
+	list-style: disc;
+	font-size: 17px;
+	line-height: 1.59;
+}
+
+a {
+	text-decoration: none;
+	color: #2f2f2f;
+}
+
+a:hover,
+a:focus {
+	outline: none;
+	text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	margin-top: 0;
+}
+
+h1 {
+	font-size: 38px;
+}
+
+h2 {
+	font-size: 32px;
+	line-height: 1.13;
+}
+
+h3 {
+	font-size: 26px;
+}
+
+h4 {
+	font-size: 22px;
+}
+
+h5 {
+	font-size: 20px;
+}
+
+h6 {
+	font-size: 18px;
+}
+
+img {
+	border: none;
+	max-width: 100%;
+}
+
+code {
+	background-color: #ee6e73;
+	border-radius: 2px;
+	color: #fff;
+	padding: 2px 4px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #eee;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+pre code {
+	background-color: transparent;
+	color: #333333;
+}
+
+del{
+	text-decoration-color: #ee6e73;
+}
+
+kbd {
+	background-color: #ddd;
+	padding: 4px 6px;
+	border-radius: 2px;
+}
+
+address {
+	line-height: 1.5;
+	padding-left: 10px;
+}
+
+dl dt {
+	font-weight: 700;
+}
+
+dl dd {
+	margin-left: 0;
+}
+
+blockquote {
+	background-color: #f8f8f8;
+	border-radius: 0 4px 4px 0;
+	color: #323232;
+	padding: 15px 15px;
+	border-left: 5px solid #071242;
+	font-weight: 600;
+}
+
+blockquote p {
+	margin-top: 10px;
+}
+
+button {
+	padding: 5px 15px;
+	border: none;
+}
+
+button:focus {
+	outline: none;
+	border: none;
+}
+
+iframe {
+	border: none;
+}
+
+
+/* ========= BUTTON =========*/
+
+.mu-primary-btn {
+	background-color: #0091ea;
+	color: #fff;
+	display: inline-block;
+	font-size: 18px;
+	padding: 15px 70px;
+	text-transform: uppercase;
+	font-weight: 700;
+	border-radius: 25px;
+}
+
+.mu-primary-btn:hover,
+.mu-primary-btn:focus {
+	color: #fff;
+}
+
+
+.mu-send-msg-btn {
+	color: #555;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 1px;
+	text-align: center;
+	padding: 12px 20px;
+	margin-top: 10px;
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+	width: 170px;
+	color: #fff;
+	border-radius: 20px;
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+.mu-send-msg-btn:hover,
+.mu-send-msg-btn:focus {
+	background-color: #fff;
+}
+
+/*scrol to top*/
+
+.scrollToTop {
+	background-color: rgba(4,4,4,0.55);
+	bottom: 60px;
+	color: #ffffff;
+	display: none;
+	font-size: 30px;
+	line-height: 50px;
+	position: fixed;
+	right: 20px;
+	text-align: center;
+	text-decoration: none;
+	width: 55px;
+	z-index: 999;
+	-webkit-transition: all 0.5s ease 0s;
+	transition: all 0.5s ease 0s;
+	height: 55px;
+}
+
+.scrollToTop:hover,
+.scrollToTop:focus {
+  color: #fff;
+}
+
+.mu-single-slide:before {
+	background-color:rgba(4,4,4,4);
+	filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=rgba(4,4,4,0.55), endColorstr=#73b58c);
+	background-image:-moz-linear-gradient(left, rgba(4,4,4,4) 55%, #73b58c 22%,#69bbd5 100%);
+	background-image:linear-gradient(left, rgba(4,4,4,4) 55%, #73b58c 22%,#69bbd5 100%);
+	background-image:-webkit-linear-gradient(left, rgba(4,4,4,4) 55%, #73b58c 22%,#69bbd5 100%);
+	background-image:-o-linear-gradient(left, rgba(4,4,4,4) 55%, #73b58c 22%,#69bbd5 100%);
+	background-image:-ms-linear-gradient(left, rgba(4,4,4,4) 55%, #73b58c 22%,#69bbd5 100%);
+	background-image:-webkit-gradient(linear, left bottom, right bottom, color-stop(55%,rgba(4,4,4,0.55)), color-stop(22%,#73b58c),color-stop(100%,#69bbd5));
+}
+
+a:hover,
+a:focus,
+.mu-book-now-btn,
+.mu-copy-right a:hover,
+.mu-copy-right a:focus,
+.mu-send-msg-btn:hover,
+.mu-send-msg-btn:focus,
+.mu-logo,
+.mu-logo:hover,
+.mu-logo:focus,
+.mu-client-quote,
+.mu-clients-slider .slick-prev,
+.mu-clients-slider .slick-next,
+.mu-clients-slider .slick-prev::before,
+.mu-clients-slider .slick-next::before,
+.my-why-us-single-icon {
+	color: rgba(4,4,4,4);
+}
+
+
+.scrollToTop,
+.mu-testimonial-slide .slick-dots li.slick-active,
+#mu-callto-action {
+	background-color: rgba(4,4,4,4);
+}
+
+.mu-social-media a:hover,
+.mu-social-media a:focus {
+	border: 1px solid rgba(4,4,4,0.55);
+	color: rgba(4,4,4,0.55);
+}
+
+.mu-contact-form .form-control:focus,
+.mu-featured-tours-single-info .mu-book-now-btn {
+	border: 1px solid rgba(4,4,4,0.55);
+}
+
+.mu-send-msg-btn,
+.mu-send-msg-btn:focus,
+.mu-register-btn:hover,
+.mu-register-btn:focus {
+	border: 1px solid rgba(4,4,4,0.55);
+	background-color: rgba(4,4,4,0.55);
+}
+
+.mu-clients-slider .slick-prev,
+.mu-clients-slider .slick-next {
+	border: 2px solid rgba(4,4,4,0.55);
+}
