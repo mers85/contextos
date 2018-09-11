@@ -3,13 +3,7 @@
 
     <div class="col-sm-6 col-md-4">
       <div class="row">
-        <%if @context.pictures.empty?%>
-          <img class="img-fluid mx-auto" data-src="holder.js/250x250/auto" alt="Generic placeholder image">
-        <%else%>
-          <% @context.pictures.each do |picture| %>
-            <%= image_tag(picture.image, class: "img-fluid mx-auto image-context") %>
-          <%end%>
-        <%end%>
+        <%= load_image_for(@context) %>  
       </div>
     </div>
 
