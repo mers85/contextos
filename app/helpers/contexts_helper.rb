@@ -27,7 +27,7 @@ module ContextsHelper
     if context.pictures.any?
       image_tag context.pictures.sample.image, class: "img-fluid"
     else
-      image_tag "img-news.jpg", class: "img-fluid"
+      image_tag "info-context.jpg", class: "img-fluid"
     end
   end
 end

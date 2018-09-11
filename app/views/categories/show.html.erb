@@ -1,9 +1,7 @@
 <div class="container mt-4 mb-4 bg-light" >
-  <%= link_to 'Back', categories_path %>
   <div class="row justify-content-between">
     <div class="col-sm-6 col-md-12">
       <h1><%= @category.name %></h1>
-      <p><%= @category.description %></p>
       <%= link_to 'Edit', edit_category_path(@category), class: "btn btn-outline-primary btn-sm mb-3" %>
     </div>
   </div>
