@@ -9,6 +9,9 @@
             <div class="col-md-12">
               <div class="mu-title">
                 <h2>Contexts</h2>
+                <% if current_user%>
+                  <%= link_to 'Add context', new_context_path(@context), class: "btn btn-outline-secondary btn-sm mb-3" %>
+                <% end %>
               </div>
             </div>
           </div>
